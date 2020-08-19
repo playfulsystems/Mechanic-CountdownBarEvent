@@ -6,8 +6,7 @@ using UnityEngine;
 public class Countdown : MonoBehaviour
 {
     // event
-    public static event Action<int> TimesUp;
-
+    public static event Action<int> TimesUp = delegate {};
     public float countdownEverySeconds = 1f;
     public float counter;
 
@@ -21,7 +20,7 @@ public class Countdown : MonoBehaviour
     {
         // if countdown is up
         if (counter < 0)
-		{
+	    {
             TimesUp(0); // call the delegate
             counter = countdownEverySeconds;
         }
