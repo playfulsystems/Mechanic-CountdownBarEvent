@@ -10,11 +10,21 @@ public class JumpOnCountdown : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
+    }
+
+	void OnEnable()
+	{
         Countdown.TimesUp += Jump; // register for jump event
     }
 
+    void OnDisable()
+    {
+        Countdown.TimesUp -= Jump; // deregister for jump event
+    }
+
     // called from Countdown (when TimesUp is called)
-    void Jump(int timeNum)
+    void Jump(int num)
     {
         rb.AddForce(new Vector2(0, jumpForce));
     }
