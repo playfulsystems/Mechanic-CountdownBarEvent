@@ -7,7 +7,8 @@ public class Countdown : MonoBehaviour
 {
     // event - you have to initialize this to nothing or you'll get a null error
     // if nothing is subscribed to it
-    public static event Action<int> TimesUp = delegate {};
+    public static event Action TimesUp = delegate {};
+
     public float countdownEverySeconds;
     public float counter;
 
@@ -22,7 +23,7 @@ public class Countdown : MonoBehaviour
         // if countdown is up
         if (counter < 0)
 	    {
-            TimesUp(0); // call the delegate
+            TimesUp(); // call the delegate
             counter = countdownEverySeconds;
         }
 

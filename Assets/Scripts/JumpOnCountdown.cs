@@ -24,7 +24,7 @@ public class JumpOnCountdown : MonoBehaviour
     }
 
     // called from Countdown (when TimesUp is called)
-    void Jump(int num)
+    void Jump()
     {
         rb.AddForce(new Vector2(0, jumpForce));
     }
