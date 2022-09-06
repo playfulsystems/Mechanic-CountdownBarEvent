@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class Countdown : MonoBehaviour
 {
-    // event - you have to initialize this to nothing or you'll get a null error
-    // if nothing is subscribed to it
-    public static event Action TimesUp = delegate {};
+    // event -  if nothing is subscribed to it when you call it, you'll get a null error
+    public static event Action TimesUp;
 
     public float countdownEverySeconds;
     public float counter;
@@ -23,7 +22,8 @@ public class Countdown : MonoBehaviour
         // if countdown is up
         if (counter < 0)
 	    {
-            TimesUp(); // call the delegate
+            // make sure something is subscribed before invoking (calling all functions)
+            if (TimesUp != null) TimesUp.Invoke();
             counter = countdownEverySeconds;
         }
 
