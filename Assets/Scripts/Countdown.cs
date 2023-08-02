@@ -23,7 +23,8 @@ public class Countdown : MonoBehaviour
         if (counter < 0)
 	    {
             // make sure something is subscribed before invoking (calling all functions)
-            if (TimesUp != null) TimesUp.Invoke();
+            //if (TimesUp != null) TimesUp.Invoke();
+            if (TimesUp != null) TimesUp();
             counter = countdownEverySeconds;
         }
 
